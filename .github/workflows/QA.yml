@@ -22,8 +22,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Discord notification
-      uses: cl8dep/action-discord@v0
-      with:
-        webhook: ${{ secrets.WEBHOOK_URL }}
-        message: 'Hello World'
+        - name: Checkout
+          uses: actions/checkout@v2
+        - uses: fateyan/action-discord-notifier@v1
+          with:
+            message-title: New Commits Pushed
+            webhook: https://discordapp.com/api/webhooks/00000000000/secret
